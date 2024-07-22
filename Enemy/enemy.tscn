@@ -1,0 +1,228 @@
+[gd_scene load_steps=32 format=3 uid="uid://t4lrm87120h0"]
+
+[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_mohve"]
+[ext_resource type="Texture2D" uid="uid://4w74t5rgbor3" path="res://Enemy Tank Assets/Tracks/Track_1_A.png" id="2_imco3"]
+[ext_resource type="Texture2D" uid="uid://ddbcfo2284dqj" path="res://Enemy Tank Assets/Tracks/Track_1_B.png" id="3_lstqm"]
+[ext_resource type="Texture2D" uid="uid://qhnbit4cioxf" path="res://Enemy Tank Assets/Body/Hull_01.png" id="4_1gr1o"]
+[ext_resource type="Texture2D" uid="uid://3yd3etwhwhs0" path="res://Enemy Tank Assets/Gun/Gun_07.png" id="5_qg8wh"]
+[ext_resource type="Texture2D" uid="uid://banlajvx7qcyx" path="res://Bullet Assets/FireShoot/Sprite_Fire_Shots_Flame_000.png" id="6_n35bl"]
+[ext_resource type="Texture2D" uid="uid://kkqkwvp3bs6s" path="res://Bullet Assets/FireShoot/Sprite_Fire_Shots_Flame_001.png" id="7_xtlih"]
+[ext_resource type="Texture2D" uid="uid://cbhajb75d5ca5" path="res://Bullet Assets/FireShoot/Sprite_Fire_Shots_Flame_002.png" id="8_8aacd"]
+[ext_resource type="Texture2D" uid="uid://dvqkf56hm6tjx" path="res://Bullet Assets/FireShoot/Sprite_Fire_Shots_Flame_003.png" id="9_eo2hm"]
+[ext_resource type="Texture2D" uid="uid://cjtb4o55lc70k" path="res://Bullet Assets/FireShoot/Sprite_Fire_Shots_Flame_004.png" id="10_xlp3n"]
+[ext_resource type="Texture2D" uid="uid://bdljtqcge0fgk" path="res://Bullet Assets/FireShoot/Sprite_Fire_Shots_Flame_005.png" id="11_wkt6q"]
+[ext_resource type="Texture2D" uid="uid://bgchj3up460u" path="res://Bullet Assets/FireShoot/Sprite_Fire_Shots_Flame_006.png" id="12_rmwsv"]
+[ext_resource type="Texture2D" uid="uid://bxrt2sk6q4j5h" path="res://Bullet Assets/FireShoot/Sprite_Fire_Shots_Flame_007.png" id="13_qaepb"]
+[ext_resource type="Texture2D" uid="uid://buhlkq6ainyob" path="res://Bullet Assets/FireShoot/Sprite_Fire_Shots_Flame_008.png" id="14_rxhvc"]
+[ext_resource type="Texture2D" uid="uid://47mlrmy4plqi" path="res://Bullet Assets/FireShoot/Sprite_Fire_Shots_Flame_009.png" id="15_3qcas"]
+[ext_resource type="Texture2D" uid="uid://chjoetchykgwf" path="res://Assets Both/Explotion/Sprite_Effects_Explosion_000.png" id="16_6qoyn"]
+[ext_resource type="Texture2D" uid="uid://bsm2a67q0r7l" path="res://Assets Both/Explotion/Sprite_Effects_Explosion_001.png" id="17_hedqh"]
+[ext_resource type="Texture2D" uid="uid://c3dw0fqsowja5" path="res://Assets Both/Explotion/Sprite_Effects_Explosion_002.png" id="18_jooyn"]
+[ext_resource type="Texture2D" uid="uid://crt8gvvoppp8r" path="res://Assets Both/Explotion/Sprite_Effects_Explosion_003.png" id="19_vr0r4"]
+[ext_resource type="Texture2D" uid="uid://bui0u3l2mvop8" path="res://Assets Both/Explotion/Sprite_Effects_Explosion_004.png" id="20_20g6p"]
+[ext_resource type="Texture2D" uid="uid://dxalxksl6udbh" path="res://Assets Both/Explotion/Sprite_Effects_Explosion_005.png" id="21_0ncr2"]
+[ext_resource type="Texture2D" uid="uid://bl13d6787m6sy" path="res://Assets Both/Explotion/Sprite_Effects_Explosion_006.png" id="22_utmtr"]
+[ext_resource type="Texture2D" uid="uid://ck4ccg6mkxbe4" path="res://Assets Both/Explotion/Sprite_Effects_Explosion_007.png" id="23_r0n6d"]
+[ext_resource type="Texture2D" uid="uid://d0iadnkcm45xm" path="res://Assets Both/Explotion/Sprite_Effects_Explosion_008.png" id="24_pq6qn"]
+[ext_resource type="AudioStream" uid="uid://cbu8budkneruy" path="res://Sounds/ShotSound.wav" id="25_c4d4k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_be7v5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_imco3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lstqm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hx7fd"]
+radius = 33.5
+height = 109.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_to02y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_n35bl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xtlih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8aacd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_eo2hm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xlp3n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_wkt6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_rmwsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_qaepb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_rxhvc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_3qcas")
+}],
+"loop": false,
+"name": &"default",
+"speed": 21.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y2adk"]
+radius = 698.003
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_carhr"]
+radius = 370.005
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3s7yn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_6qoyn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_hedqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_jooyn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_vr0r4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_20g6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_0ncr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_utmtr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_r0n6d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_pq6qn")
+}],
+"loop": false,
+"name": &"default",
+"speed": 17.0
+}]
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 2
+collision_mask = 7
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_mohve")
+
+[node name="BodyToRot" type="Node2D" parent="."]
+
+[node name="StructureTank" type="Node2D" parent="BodyToRot"]
+
+[node name="Track1" type="AnimatedSprite2D" parent="BodyToRot/StructureTank"]
+position = Vector2(-30, -2)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_be7v5")
+
+[node name="Track2" type="AnimatedSprite2D" parent="BodyToRot/StructureTank"]
+position = Vector2(30, -2)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_be7v5")
+
+[node name="Body" type="Sprite2D" parent="BodyToRot/StructureTank"]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_1gr1o")
+
+[node name="MarkerFront" type="Marker2D" parent="BodyToRot"]
+position = Vector2(0, -79)
+
+[node name="CollisionBody" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_hx7fd")
+
+[node name="Gun" type="Node2D" parent="."]
+rotation = -1.5708
+
+[node name="BodyGun" type="Sprite2D" parent="Gun"]
+position = Vector2(25, -1)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_qg8wh")
+
+[node name="Marker2D" type="Marker2D" parent="Gun"]
+position = Vector2(80, -0.999725)
+
+[node name="FireShoot" type="AnimatedSprite2D" parent="Gun"]
+position = Vector2(110, -1)
+rotation = 1.5708
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_to02y")
+frame = 6
+
+[node name="RayCastSeeTarget" type="RayCast2D" parent="Gun"]
+target_position = Vector2(698, 0)
+
+[node name="AreaToDetectPlayer" type="Node2D" parent="."]
+
+[node name="AreaDetect" type="Area2D" parent="AreaToDetectPlayer"]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaToDetectPlayer/AreaDetect"]
+shape = SubResource("CircleShape2D_y2adk")
+
+[node name="RayCast2DDetect" type="RayCast2D" parent="AreaToDetectPlayer/AreaDetect"]
+target_position = Vector2(698, 0)
+collision_mask = 5
+
+[node name="RayCastDetectInRadius" type="RayCast2D" parent="AreaToDetectPlayer/AreaDetect"]
+target_position = Vector2(370, 0)
+collision_mask = 7
+
+[node name="SetForNavegate" type="Node2D" parent="."]
+
+[node name="AreaInRange" type="Area2D" parent="SetForNavegate"]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SetForNavegate/AreaInRange"]
+shape = SubResource("CircleShape2D_carhr")
+
+[node name="AnimatedDestroy" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_3s7yn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+zoom = Vector2(0.4, 0.4)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_max_distance = 150.0
+path_postprocessing = 1
+
+[node name="AudioShoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_c4d4k")
+volume_db = -10.745
+
+[connection signal="animation_finished" from="Gun/FireShoot" to="." method="_on_fire_shoot_animation_finished"]
+[connection signal="body_entered" from="AreaToDetectPlayer/AreaDetect" to="." method="_on_area_detect_body_entered"]
+[connection signal="body_exited" from="AreaToDetectPlayer/AreaDetect" to="." method="_on_area_detect_body_exited"]
+[connection signal="body_entered" from="SetForNavegate/AreaInRange" to="." method="_on_area_in_range_body_entered"]
+[connection signal="body_exited" from="SetForNavegate/AreaInRange" to="." method="_on_area_in_range_body_exited"]
+[connection signal="animation_finished" from="AnimatedDestroy" to="." method="_on_animated_destroy_animation_finished"]
+[connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]

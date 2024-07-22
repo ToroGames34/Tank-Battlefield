@@ -1,0 +1,100 @@
+[gd_scene load_steps=18 format=3 uid="uid://b46qm75l3q62r"]
+
+[ext_resource type="Texture2D" uid="uid://rfv0k3akoti0" path="res://Bullet Assets/Bullet/Sprite_Effects_Exhaust_02_000.png" id="1_4mln8"]
+[ext_resource type="Script" path="res://BulletPlayer/bullet_player.gd" id="1_b3d0a"]
+[ext_resource type="Texture2D" uid="uid://cbwprfvibmcnm" path="res://Bullet Assets/Bullet/Sprite_Effects_Exhaust_02_001.png" id="2_dnsf5"]
+[ext_resource type="Texture2D" uid="uid://bwtp7ut2bdadg" path="res://Bullet Assets/Bullet/Sprite_Effects_Exhaust_02_002.png" id="3_lpwph"]
+[ext_resource type="Texture2D" uid="uid://dn3h0abnvemc" path="res://Bullet Assets/Bullet/Sprite_Effects_Exhaust_02_003.png" id="4_34qr8"]
+[ext_resource type="Texture2D" uid="uid://cug0troggkkq3" path="res://Bullet Assets/Bullet/Sprite_Effects_Exhaust_02_004.png" id="5_cnets"]
+[ext_resource type="Texture2D" uid="uid://52csrpij48pr" path="res://Bullet Assets/Bullet/Sprite_Effects_Exhaust_02_005.png" id="6_kk4a1"]
+[ext_resource type="Texture2D" uid="uid://x4qbyhsdp4ct" path="res://Bullet Assets/Bullet/Sprite_Effects_Exhaust_02_006.png" id="7_6d3qq"]
+[ext_resource type="Texture2D" uid="uid://1t7gj0vrrgv5" path="res://Bullet Assets/Bullet/Sprite_Effects_Exhaust_02_007.png" id="8_gdcjl"]
+[ext_resource type="Texture2D" uid="uid://c1pwni58mj3a3" path="res://Bullet Assets/Bullet/Sprite_Effects_Exhaust_02_008.png" id="9_nj1oh"]
+[ext_resource type="Texture2D" uid="uid://di67icyn7c6bu" path="res://Bullet Assets/Bullet/Sprite_Effects_Exhaust_02_009.png" id="10_dkcu8"]
+[ext_resource type="Texture2D" uid="uid://dsblb2y0rov46" path="res://Bullet Assets/Impact/Sprite_Fire_Shots_Impact_A_000.png" id="12_paj23"]
+[ext_resource type="Texture2D" uid="uid://p1fyet4wupmv" path="res://Bullet Assets/Impact/Sprite_Fire_Shots_Impact_A_001.png" id="13_w53if"]
+[ext_resource type="Texture2D" uid="uid://1ohv2c628ic2" path="res://Bullet Assets/Impact/Sprite_Fire_Shots_Impact_A_002.png" id="14_nn6un"]
+[ext_resource type="Texture2D" uid="uid://dlkors7tarpjf" path="res://Bullet Assets/Impact/Sprite_Fire_Shots_Impact_A_003.png" id="15_b60bv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ka63q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4mln8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dnsf5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lpwph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_34qr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cnets")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kk4a1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6d3qq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gdcjl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nj1oh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dkcu8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_paj23")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_w53if")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_nn6un")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_b60bv")
+}],
+"loop": false,
+"name": &"impact",
+"speed": 17.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ysn56"]
+radius = 3.0
+height = 38.0
+
+[node name="BulletPlayer" type="Area2D" groups=["bullet"]]
+position = Vector2(303, 163)
+rotation = 3.14159
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("1_b3d0a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -33)
+sprite_frames = SubResource("SpriteFrames_ka63q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_ysn56")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, 40)
+scale = Vector2(0.65, 0.9)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
